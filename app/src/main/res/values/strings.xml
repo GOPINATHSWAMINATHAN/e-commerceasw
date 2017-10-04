@@ -1,0 +1,14 @@
+<resources>
+    <integer-array name="img_id_arr">
+        <item>@drawable/supermarket</item>
+        <item>@drawable/supermarket</item>
+        <item>@drawable/supermarket</item>
+        <item>@drawable/supermarket</item>
+    </integer-array>
+    <string name="app_name">AswaqqNet</string>
+    <string name="title_activity_drawer">AswaqqNet</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+<string name="old_price"></string>
+</resources>
