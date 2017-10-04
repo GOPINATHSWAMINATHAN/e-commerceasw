@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,10 +12,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Base64;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
 
@@ -37,6 +44,7 @@ private List<HomePojo> homeLists;
         holder.oldPrice.setText(hp.getOld_price());
         holder.newPrice.setText(hp.getNew_price());
         holder.productName.setText(hp.getProduct_name());
+
     }
 
     @Override
@@ -61,14 +69,23 @@ private List<HomePojo> homeLists;
         productName=itemView.findViewById(R.id.product_name);
         productCard=itemView.findViewById(R.id.first_card);
         viewProduct=itemView.findViewById(R.id.fazalur);
+        RelativeLayout check_progress=(RelativeLayout)itemView.findViewById(R.layout.progress_bar);
+
+
         viewProduct.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent check=new Intent(context,ProductDisplay.class);
-                check.putExtra("pos",getAdapterPosition());
-                context.startActivity(check);
-            }
-        });
+                                           @Override
+                                           public void onClick(View view) {
+
+
+                                               Intent check1 = new Intent(context, ProductDisplay.class);
+                                               check1.putExtra("pos", getAdapterPosition());
+                                               context.startActivity(check1);
+
+                                           }
+
+                                       });
+
+
         productCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,6 +100,7 @@ private List<HomePojo> homeLists;
     }
 
 }
+
 public HomeAdapter(List<HomePojo> homeLists)
 {
     this.homeLists=homeLists;

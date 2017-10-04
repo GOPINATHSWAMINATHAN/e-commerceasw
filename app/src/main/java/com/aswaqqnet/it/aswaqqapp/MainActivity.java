@@ -2,6 +2,7 @@ package com.aswaqqnet.it.aswaqqapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -18,16 +19,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        check=(Button)findViewById(R.id.fazalur);
+        check = (Button) findViewById(R.id.fazalur);
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),ProductDisplay.class));
+                startActivity(new Intent(getApplicationContext(), ProductDisplay.class));
             }
         });
-
     }
-
 }
 ////        check=(Button)findViewById(R.id.fazalur);
 ////        check.setOnClickListener(new View.OnClickListener() {

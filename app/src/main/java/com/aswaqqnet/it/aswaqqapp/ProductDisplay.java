@@ -1,5 +1,6 @@
 package com.aswaqqnet.it.aswaqqapp;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -27,6 +28,14 @@ public class ProductDisplay extends AppCompatActivity {
 
         b1.setTypeface(tf);
         b2.setTypeface(tf);
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(getApplicationContext(),Cart.class);
+                startActivity(i);
+
+            }
+        });
        // blink();
     }
     private void blink(){
