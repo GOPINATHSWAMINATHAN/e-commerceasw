@@ -36,6 +36,7 @@ public static View.OnClickListener myOnClickListener;
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         List<HomePojo> data=new ArrayList();
+        new HomeDataRetrieve().execute();
         data.add(new HomePojo(R.drawable.logo_one,30,"Lenovo K5 note","3500","3000"));
         data.add(new HomePojo(R.drawable.logo_one,40,"Iphone 8 plus 128 GB ","78000","70000"));
         data.add(new HomePojo(R.drawable.logo_one,90,"SONY xperia is a good phone","30000","12000"));
