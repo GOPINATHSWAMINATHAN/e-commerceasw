@@ -25,10 +25,9 @@ public class ProductDisplay extends AppCompatActivity {
         b2=(Button)findViewById(R.id.add_to_cart);
         Typeface tf = Typeface.createFromAsset(getAssets(),
                 "font.otf");
-
         b1.setTypeface(tf);
         b2.setTypeface(tf);
-        b2.setOnClickListener(new View.OnClickListener() {
+       b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i=new Intent(getApplicationContext(),Cart.class);
@@ -37,6 +36,13 @@ public class ProductDisplay extends AppCompatActivity {
             }
         });
        // blink();
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(getApplicationContext(),Cart.class);
+                startActivity(i);
+            }
+        });
     }
     private void blink(){
         final Handler handler = new Handler();

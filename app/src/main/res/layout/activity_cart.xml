@@ -102,6 +102,7 @@
             android:layout_margin="3dp"
             android:layout_gravity="bottom|center"
             android:background="#2f85da"
+            android:id="@+id/buy_cart"
             android:text="BUY"
 
             android:textColor="@color/white" />

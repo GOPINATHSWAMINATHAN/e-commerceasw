@@ -40,6 +40,13 @@ public static View.OnClickListener myOnClickListener;
         data.add(new HomePojo(R.drawable.logo_one,30,"Lenovo K5 note","3500","3000"));
         data.add(new HomePojo(R.drawable.logo_one,40,"Iphone 8 plus 128 GB ","78000","70000"));
         data.add(new HomePojo(R.drawable.logo_one,90,"SONY xperia is a good phone","30000","12000"));
+        data.add(new HomePojo(R.drawable.logo_one,90,"SONY xperia is a good phone","30000","12000"));
+        data.add(new HomePojo(R.drawable.logo_one,40,"Iphone 8 plus 128 GB ","78000","70000"));
+        data.add(new HomePojo(R.drawable.logo_one,90,"SONY xperia is a good phone","30000","12000"));
+        data.add(new HomePojo(R.drawable.logo_one,90,"SONY xperia is a good phone","30000","12000"));
+        data.add(new HomePojo(R.drawable.logo_one,40,"Iphone 8 plus 128 GB ","78000","70000"));
+        data.add(new HomePojo(R.drawable.logo_one,90,"SONY xperia is a good phone","30000","12000"));
+        data.add(new HomePojo(R.drawable.logo_one,90,"SONY xperia is a good phone","30000","12000"));
         View v = inflater.inflate(R.layout.intro_recycler, container, false);
         Button check = (Button) v.findViewById(R.id.fazalur);
         RecyclerView recyclerView=(RecyclerView)v.findViewById(R.id.intro_recycler);
@@ -81,8 +88,9 @@ public static View.OnClickListener myOnClickListener;
                 if (position < spanCount) { // top edge
                     outRect.top = spacing;
                 }
-                outRect.bottom = spacing; // item bottom
-            } else {
+               outRect.bottom = spacing; // item bottom
+            }
+            else {
                 outRect.left = column * spacing / spanCount; // column * ((1f / spanCount) * spacing)
                 outRect.right = spacing - (column + 1) * spacing / spanCount; // spacing - (column + 1) * ((1f /    spanCount) * spacing)
                 if (position >= spanCount) {

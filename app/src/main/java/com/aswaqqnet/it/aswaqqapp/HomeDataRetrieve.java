@@ -2,6 +2,7 @@ package com.aswaqqnet.it.aswaqqapp;
 
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,6 +49,8 @@ public class HomeDataRetrieve extends AsyncTask<String, Void, String> {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
         return jsonData;
     }
 
@@ -62,20 +65,30 @@ public class HomeDataRetrieve extends AsyncTask<String, Void, String> {
             JSONArray jsonArray=jsonObject.getJSONArray(array);
             if(jsonArray!=null)
             {
-                for (int i=0;i<jsonArray.length();i++)
+                for(int i=0;i<jsonArray.length();i++)
                 {
                     JSONObject object=jsonArray.getJSONObject(i);
-                    JSONArray arrJson=object.getJSONArray(product_name);
-                    String[] arr=new String[arrJson.length()];
-                    for(int k=0;k<arrJson.length();k++)
-                    {
-                        String prices=object.getString(price);
-                        arr[k]=arrJson.getString(k);
-                        Log.e("arrayValues",arr[k]);
-                        Log.e("priceValues",prices);
-                    }
-
+                    String prices=object.getString(price);
+                    String products=object.getString(product_name);
+                    Log.e("product_name",products);
+                    Log.e("prices",prices);
                 }
+//                for (int i=0;i<jsonArray.length();i++)
+//                {
+//                    JSONObject object=jsonArray.getJSONObject(i);
+//                    JSONArray arrJson=object.getJSONArray(array);
+//                    Log.e("Array Values are ",""+    arrJson);
+//                   // String[] arr=new String[arrJson.length()];
+//                    for(int k=0;k<arrJson.length();k++)
+//                    {
+//                        JSONObject rec = arrJson.getJSONObject(i);
+//                        String prices=rec.getString(price);
+//                        String products_name=rec.getString(product_name);
+//                        Log.e("productName",products_name);
+//                        Log.e("priceValues",prices);
+//                    }
+//                    //Toast.makeText(,"Your Message", Toast.LENGTH_LONG).show();
+//                }
             }
         } catch (JSONException e) {
             e.printStackTrace();
