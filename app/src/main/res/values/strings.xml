@@ -11,4 +11,27 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="old_price"></string>
+    <string-array name="cities">
+        <item>Riyadh</item>
+        <item>Khobar</item>
+        <item>Qassim</item>
+        <item>Jeddah</item>
+    </string-array>
+    <string name="copyright">COPYRIGHT 2017</string>
+    <string name="view_product">View Product</string>
+    <string name="shops">Shops</string>
+    <string name="buy_now">Buy Now</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="address">Address</string>
+    <string name="phone_no">Phone no.</string>
+    <string name="city">City</string>
+    <string name="deliver">Deliver to this Address</string>
+    <string name="Qty">Qty</string>
+    <string name="price">Price</string>
+    <string name="buy">Buy</string>
+    <string name="welcome">Welcome to AswaqqNet</string>
+    <string name="intro">Aswaqqnet provides online shopping throughout KSA</string>
 </resources>

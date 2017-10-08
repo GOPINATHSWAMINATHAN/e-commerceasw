@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/product_cart_name"
                 android:layout_toEndOf="@+id/product_cart_image"
-                android:text="Qty:" />
+                android:text="@string/Qty" />
 
             <com.hariofspades.incdeclibrary.IncDecCircular
                 android:id="@+id/incdec"
@@ -48,10 +48,10 @@
                 android:layout_toEndOf="@+id/qty_cart"
                 app:leftButtonColorTint="#ffff"
                 app:leftDrawable="@mipmap/remove"
-                app:leftDrawableTint="#123"
+                app:leftDrawableTint="#000000"
                 app:rightButtonColorTinit="#fff"
                 app:rightDrawable="@mipmap/add"
-                app:rightDrawableTint="#123"
+                app:rightDrawableTint="#000000"
                 app:textColor="@color/white"
                 app:textSize="20" />
 
@@ -74,7 +74,7 @@
                 android:layout_below="@id/item_count"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:text="Price: " />
+                android:text="@string/price" />
 
             <TextView
                 android:id="@+id/total_price"
@@ -83,6 +83,7 @@
                 android:layout_below="@id/item_count"
                 android:layout_centerVertical="true"
                 android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
                 android:layout_toEndOf="@+id/price"
                 android:text="3200" />
         </RelativeLayout>
@@ -103,7 +104,7 @@
             android:layout_gravity="bottom|center"
             android:background="#2f85da"
             android:id="@+id/buy_cart"
-            android:text="BUY"
+            android:text="@string/buy"
 
             android:textColor="@color/white" />
     </android.support.v7.widget.CardView>

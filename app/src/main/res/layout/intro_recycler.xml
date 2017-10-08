@@ -22,7 +22,7 @@ android:layout_margin="5dp"
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Shops"
+                android:text="@string/shops"
                 android:textColor="#000000"
                 android:textSize="13sp"
                 android:textStyle="bold"/>

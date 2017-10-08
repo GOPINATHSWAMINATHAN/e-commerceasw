@@ -1,74 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context="com.aswaqqnet.it.aswaqqapp.AddressDetails">
 
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="#e5e6e7"
+    android:layout_margin="5dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="2">
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
+        app:errorEnabled="true"
+        android:id="@+id/first_auto"
         android:layout_margin="10dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
        >
 
         <EditText
+            android:id="@+id/firstname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="First Name" />
+            android:hint="@string/first_name" />
     </android.support.design.widget.TextInputLayout>
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
+        app:errorEnabled="true"
+        android:id="@+id/last_auto"
+        android:layout_weight="1"
         android:layout_margin="10dp"
         android:layout_height="wrap_content"
         >
 
         <EditText
+            android:id="@+id/lastname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Last Name" />
+            android:hint="@string/last_name" />
     </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
+        app:errorEnabled="true"
+        android:id="@+id/email"
         android:layout_margin="10dp"
         android:layout_height="wrap_content"
         >
 
         <EditText
+            android:id="@+id/email_auto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Address" />
+            android:hint="@string/email" />
     </android.support.design.widget.TextInputLayout>
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_margin="10dp"
+        app:errorEnabled="true"
+        android:id="@+id/address_auto"
         android:layout_height="wrap_content"
         >
 
         <EditText
+            android:id="@+id/address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone no" />
+            android:hint="@string/address" />
     </android.support.design.widget.TextInputLayout>
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_margin="10dp"
+        app:errorEnabled="true"
+        android:id="@+id/phone_auto"
+        android:layout_height="wrap_content"
+        >
+
+        <EditText
+            android:id="@+id/phoneno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/phone_no" />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        app:errorEnabled="true"
+        android:id="@+id/city_auto"
         android:layout_height="wrap_content"
         >
     <AutoCompleteTextView
+        android:id="@+id/city_array"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="City"
+        android:hint="@string/city"
         />
     </android.support.design.widget.TextInputLayout>
+
+</LinearLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <Button
+        android:id="@+id/buy_delivery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="DELIVER TO THIS ADDRESS"
+        android:text="@string/deliver"
         android:layout_margin="10dp"
         android:textColor="#ffffff"
         android:layout_alignParentBottom="true"
@@ -76,3 +128,4 @@
         />
     </RelativeLayout>
 </LinearLayout>
+</ScrollView>

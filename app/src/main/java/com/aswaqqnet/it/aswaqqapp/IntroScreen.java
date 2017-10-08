@@ -17,23 +17,24 @@ public class IntroScreen extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.hide();
         }
-
+        String app_name = getResources().getString(R.string.app_name);
+        String copyright = getResources().getString(R.string.copyright);
+        String welcome = getResources().getString(R.string.welcome);
+        String intro=getResources().getString(R.string.intro);
         EasySplashScreen config = new EasySplashScreen(this)
                 .withFullScreen()
                 .withTargetActivity(Drawer.class)
                 .withSplashTimeOut(4000)
                 .withBackgroundResource(android.R.color.holo_red_light)
-                .withHeaderText("AswaqqNet")
-                .withFooterText("Copyright 2017")
-                .withBeforeLogoText("Welcome to AswaqqNet")
+                .withHeaderText(app_name)
+                .withFooterText(copyright)
+                .withBeforeLogoText(welcome)
                 .withLogo(R.drawable.logo_one)
-                .withAfterLogoText("AswaqqNet provides easy shopping throughout KSA");
+                .withAfterLogoText(intro);
 
         Typeface pacificoFont = Typeface.createFromAsset(getAssets(), "font.otf");
         config.getAfterLogoTextView().setTypeface(pacificoFont);
-
         config.getHeaderTextView().setTextColor(Color.WHITE);
-
         View easySplashScreenView = config.create();
         setContentView(easySplashScreenView);
     }
