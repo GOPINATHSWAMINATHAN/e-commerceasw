@@ -46,13 +46,13 @@
                 android:layout_height="60dp"
                 android:layout_below="@+id/product_cart_name"
                 android:layout_toEndOf="@+id/qty_cart"
-                app:leftButtonColorTint="#ffff"
+                app:leftButtonColorTint="#dfdfdf"
                 app:leftDrawable="@mipmap/remove"
                 app:leftDrawableTint="#000000"
-                app:rightButtonColorTinit="#fff"
+                app:rightButtonColorTinit="#dfdfdf"
                 app:rightDrawable="@mipmap/add"
                 app:rightDrawableTint="#000000"
-                app:textColor="@color/white"
+                app:textColor="#123"
                 app:textSize="20" />
 
             <TextView

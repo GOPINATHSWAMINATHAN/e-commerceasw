@@ -4,15 +4,19 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,6 +67,40 @@ public static View.OnClickListener myOnClickListener;
 //            }
 //        });
         return v;
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if(getView() == null){
+            return;
+        }
+
+        getView().setFocusableInTouchMode(true);
+        getView().requestFocus();
+
+        getView().setOnKeyListener(new View.OnKeyListener() {
+            int count=0;
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
+                    // handle back button's click listener
+                    count++;
+                    if(count<2) {
+                        Toast.makeText(getActivity(), "Please press again to Exit", Toast.LENGTH_LONG).show();
+                        return true;
+                    }
+                    else
+                    {
+                        getActivity().finish();
+
+                    }
+
+                }
+                return false;
+            }
+        });
     }
     public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
 
@@ -120,4 +158,6 @@ private Context context;
 
         }
     }
+
+
 }

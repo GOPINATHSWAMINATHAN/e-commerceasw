@@ -5,6 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.aswaqqnet.it.aswaqqapp.IntroScreen">
+    <!--<VideoView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:id="@+id/video_view"/>-->
 <com.chabbal.slidingdotsplash.SlidingSplashView
     android:layout_width="match_parent"
     android:layout_height="match_parent"

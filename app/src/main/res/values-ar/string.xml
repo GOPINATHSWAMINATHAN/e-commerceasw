@@ -4,4 +4,26 @@
     <string name="home">الصفحة الرئسية</string>
     <string name="price">السعر</string>
     <string name="women">المراءة</string>
+    <string name="view_product">اظهار المنتج</string>
+    <string name="clothes">ملابس</string>
+    <string name="accessories">اكسسوارات</string>
+    <string name="cosmetics">منتجات عناية شخصية</string>
+    <string name="fashions">الموضة</string>
+    <string name="glasses">نظارات</string>
+    <string name="watches">ساعات</string>
+    <string name="kids">اطفال</string>
+    <string name="electronics">الكترونيات</string>
+    <string name="buy_now">اشتري الأن</string>
+    <string name="add_to_cart">أضف الي السلة</string>
+    <string name="sar">ريال سعودي</string>
+    <string name="buy">اشتري</string>
+    <string name="deliver">التوصيل لهذا العنوان</string>
+    <string name="welcome">التوصيل لهذا العنوان</string>
+    <string name="first_name">الأسم الأول</string>
+    <string name="last_name">أسم العائلة</string>
+    <string name="email">بريد الكتروني</string>
+    <string name="address">العنوان</string>
+    <string name="phone_no">رقم التليفون</string>
+    <string name="city">المدينة</string>
+    <string name="qty">الكمية</string>
 </resources>

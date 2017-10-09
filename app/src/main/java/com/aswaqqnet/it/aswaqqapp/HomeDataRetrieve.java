@@ -3,13 +3,10 @@ package com.aswaqqnet.it.aswaqqapp;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
-
 import okhttp3.Call;
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;

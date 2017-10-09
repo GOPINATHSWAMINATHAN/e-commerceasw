@@ -8,6 +8,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.stephentuso.welcome.WelcomeHelper;
@@ -27,6 +28,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+//    @Override
+//    public void onBackPressed() {
+//
+//        int count = getFragmentManager().getBackStackEntryCount();
+//
+//        if (count < 2) {
+//            super.onBackPressed();
+//            //additional code
+//            Toast.makeText(getApplicationContext(),"Please press again to Exit",Toast.LENGTH_LONG).show();
+//        } else {
+//            getFragmentManager().popBackStack();
+//        }
+//
+//    }
 }
 ////        check=(Button)findViewById(R.id.fazalur);
 ////        check.setOnClickListener(new View.OnClickListener() {

@@ -14,7 +14,7 @@
 <LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="#e5e6e7"
+    android:background="#ffffff"
     android:layout_margin="5dp"
     android:layout_height="wrap_content">
 
@@ -31,7 +31,6 @@
         android:layout_weight="1"
         android:layout_height="wrap_content"
        >
-
         <EditText
             android:id="@+id/firstname"
             android:layout_width="match_parent"

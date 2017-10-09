@@ -101,6 +101,7 @@ private List<HomePojo> homeLists;
 
 }
 
+
 public HomeAdapter(List<HomePojo> homeLists)
 {
     this.homeLists=homeLists;
