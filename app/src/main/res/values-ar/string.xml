@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">اسواق نت</string>
+    <string name="title_activity_drawer">اسواق نت</string>
     <string name="home">الصفحة الرئسية</string>
     <string name="price">السعر</string>
     <string name="women">المراءة</string>
@@ -16,6 +17,7 @@
     <string name="buy_now">اشتري الأن</string>
     <string name="add_to_cart">أضف الي السلة</string>
     <string name="sar">ريال سعودي</string>
+    <string name="men">رجال</string>
     <string name="buy">اشتري</string>
     <string name="deliver">التوصيل لهذا العنوان</string>
     <string name="welcome">التوصيل لهذا العنوان</string>
@@ -25,5 +27,14 @@
     <string name="address">العنوان</string>
     <string name="phone_no">رقم التليفون</string>
     <string name="city">المدينة</string>
+    <string name="intro">موقع الشبكة يوفر التسوق عبر الإنترنت بسهوله في جميع انحاء السعودية</string>
     <string name="qty">الكمية</string>
+    <string name="riyadh">الرياض</string>
+    <string name="khobar">الخبر</string>
+    <string name="copyright">حقوق النشر 2017</string>
+    <string name="microwave">فرن ميكروويف</string>
+    <string name="qassim">القصيم</string>
+    <string name="jeddah">جدة</string>
+    <string name="mobile">الهواتف النقالة</string>
+    <string name="medina">المدينة المنورة</string>
 </resources>

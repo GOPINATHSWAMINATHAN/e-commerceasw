@@ -7,7 +7,6 @@
     </integer-array>
     <string name="app_name">AswaqqNet</string>
     <string name="title_activity_drawer">AswaqqNet</string>
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="old_price"></string>
@@ -17,6 +16,15 @@
         <item>Qassim</item>
         <item>Jeddah</item>
     </string-array>
+    <string name="clothes">Clothes</string>
+    <string name="cosmetics">Cosmetics</string>
+    <string name="fashions">Fashions</string>
+    <string name="men">Men</string>
+    <string name="glasses">Glasses</string>
+    <string name="watches">Watches</string>
+    <string name="kids">Kids</string>
+    <string name="microwave">Microwave Oven</string>
+    <string name="accessories">Accessories</string>
     <string name="copyright">COPYRIGHT 2017</string>
     <string name="view_product">View Product</string>
     <string name="shops">Shops</string>
@@ -34,4 +42,10 @@
     <string name="buy">Buy</string>
     <string name="welcome">Welcome to AswaqqNet</string>
     <string name="intro">Aswaqqnet provides online shopping throughout KSA</string>
+    <string name="riyadh">Riyadh</string>
+    <string name="khobar">Khobar</string>
+    <string name="qassim">Qassim</string>
+    <string name="jeddah">Jeddah</string>
+    <string name="mobile">Mobile Phones</string>
+    <string name="medina">Medina</string>
 </resources>

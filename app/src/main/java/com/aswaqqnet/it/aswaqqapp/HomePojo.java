@@ -1,5 +1,6 @@
 package com.aswaqqnet.it.aswaqqapp;
 
+import android.graphics.Bitmap;
 import android.widget.Toast;
 
 /**
@@ -8,22 +9,21 @@ import android.widget.Toast;
 
 public class HomePojo {
 
-    public int image;
+    public Bitmap image;
     public int discount;
     public String product_name;
     public String old_price;
     public String new_price;
 
-    public HomePojo(int image, int discount, String product_name, String old_price, String new_price) {
+    public HomePojo(Bitmap image, int discount, String product_name, String old_price, String new_price) {
         this.image = image;
         this.discount = discount;
         this.product_name = product_name;
         this.old_price = old_price;
         this.new_price = new_price;
-
     }
 
-    public int getImage() {
+    public Bitmap getImage() {
         return image;
     }
 

@@ -1,12 +1,18 @@
 package com.aswaqqnet.it.aswaqqapp;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
+//import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+
 import okhttp3.Call;
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
@@ -21,11 +27,14 @@ import okhttp3.Response;
 public class HomeDataRetrieve extends AsyncTask<String, Void, String> {
 
     String department;
-
-    String url = "https://www.aswaqqnet.com/web/en/andcheck.php";
-    String product_code = "product_code";
-    String price = "price";
-    String product_name = "product_name";
+    ArrayList<Bitmap> al=new ArrayList();
+    ArrayList<String> al1=new ArrayList();
+    ArrayList<String> oldPrice=new ArrayList();
+    ArrayList<String> newPrice=new ArrayList();
+    String url = "https://www.aswaqqnet.com/web/en/androidview/andview1.php";
+//    String product_code = "product_code";
+//    String price = "price";
+//    String product_name = "product_name";
     String array = "aaData";
 
     @Override
@@ -56,20 +65,34 @@ public class HomeDataRetrieve extends AsyncTask<String, Void, String> {
     }
 
     protected void onPostExecute(String jsonData) {
-        JSONObject jsonObject=null;
-        try {
-            jsonObject=new JSONObject(jsonData);
-            JSONArray jsonArray=jsonObject.getJSONArray(array);
-            if(jsonArray!=null)
-            {
-                for(int i=0;i<jsonArray.length();i++)
-                {
-                    JSONObject object=jsonArray.getJSONObject(i);
-                    String prices=object.getString(price);
-                    String products=object.getString(product_name);
-                    Log.e("product_name",products);
-                    Log.e("prices",prices);
-                }
+        JSONObject jsonObject = null;
+        int k = 1;
+        for (int j = 0; j <= k; j++) {
+            try {
+                jsonObject = new JSONObject(jsonData);
+                JSONArray jsonArray = jsonObject.getJSONArray(array + k);
+                k++;
+                if (jsonArray != null) {
+
+                    for (int i = 0; i < jsonArray.length(); i++) {
+//                        Log.e("HOME SCREEN DATA", jsonArray.getString(i));
+//                        Log.e("SHOES",jsonArray.getString(0));
+                        al1.add(jsonArray.getString(0));
+                        oldPrice.add(jsonArray.getString(2));
+                        newPrice.add(jsonArray.getString(3));
+                        URL url = new URL(jsonArray.getString(6));
+                        Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                        al.add(bmp);
+                    }
+
+//                for(int i=0;i<jsonArray.length();i++)
+//                {
+//                    JSONObject object=jsonArray.getJSONObject(i);
+//                    String prices=object.getString(price);
+//                    String products=object.getString(product_name);
+//                    Log.e("product_name",products);
+//                    Log.e("prices",prices);
+//                }
 //                for (int i=0;i<jsonArray.length();i++)
 //                {
 //                    JSONObject object=jsonArray.getJSONObject(i);
@@ -86,9 +109,14 @@ public class HomeDataRetrieve extends AsyncTask<String, Void, String> {
 //                    }
 //                    //Toast.makeText(,"Your Message", Toast.LENGTH_LONG).show();
 //                }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
     }
 }

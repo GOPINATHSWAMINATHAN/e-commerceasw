@@ -5,31 +5,31 @@
         <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/home"
-            android:title="Home" />
+            android:title="@string/home" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/women"
-            android:title="Women" >
+            android:title="@string/women" >
             <menu>
                 <item
                     android:id="@+id/clothes_women"
                     android:icon="@drawable/cart"
-                    android:title="Clothes"/>
+                    android:title="@string/clothes"/>
                 <item
                     android:id="@+id/accessories_women"
                     android:icon="@drawable/cart"
-                    android:title="Accessories"
+                    android:title="@string/accessories"
                     />
                 <item
 
                     android:id="@+id/cosmetics_women"
                     android:icon="@drawable/cart"
-                    android:title="Cosmetics"/>
+                    android:title="@string/cosmetics"/>
 
                 <item
                     android:id="@+id/fashion_women"
                     android:icon="@drawable/cart"
-                    android:title="Fashions"/>
+                    android:title="@string/fashions"/>
 
 
             </menu>
@@ -39,42 +39,42 @@
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/men"
-            android:title="Men" >
+            android:title="@string/men" >
             <menu>
                 <item
                     android:id="@+id/accessories_men"
                     android:icon="@drawable/cart"
-                    android:title="Accessories"/>
+                    android:title="@string/accessories"/>
                 <item
                     android:id="@+id/glasses_men"
                     android:icon="@drawable/cart"
-                    android:title="Glasses"/>
+                    android:title="@string/glasses"/>
                 <item
                     android:id="@+id/watches_men"
                     android:icon="@drawable/cart"
-                    android:title="Watches"/>
+                    android:title="@string/watches"/>
                 <item
                     android:id="@+id/clothes_men"
                     android:icon="@drawable/cart"
-                    android:title="Clothes"/>
+                    android:title="@string/clothes"/>
             </menu>
             </item>
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/kid"
-            android:title="Kids" />
+            android:title="@string/kids" />
     </group>
 
-    <item android:title="Electronics">
+    <item android:title="@string/electronics">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Microwave Oven" />
+                android:title="@string/microwave" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Mobile Phones" />
+                android:title="@string/mobile" />
         </menu>
     </item>
 

@@ -21,7 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
-public static View.OnClickListener myOnClickListener;
+    public static View.OnClickListener myOnClickListener;
+
     public HomeFragment() {
 
     }
@@ -37,37 +38,44 @@ public static View.OnClickListener myOnClickListener;
 //        });
     }
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
-        List<HomePojo> data=new ArrayList();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        List<HomePojo> data = new ArrayList();
         new HomeDataRetrieve().execute();
-        data.add(new HomePojo(R.drawable.logo_one,30,"Lenovo K5 note","3500","3000"));
-        data.add(new HomePojo(R.drawable.logo_one,40,"Iphone 8 plus 128 GB ","78000","70000"));
-        data.add(new HomePojo(R.drawable.logo_one,90,"SONY xperia is a good phone","30000","12000"));
-        data.add(new HomePojo(R.drawable.logo_one,90,"SONY xperia is a good phone","30000","12000"));
-        data.add(new HomePojo(R.drawable.logo_one,40,"Iphone 8 plus 128 GB ","78000","70000"));
-        data.add(new HomePojo(R.drawable.logo_one,90,"SONY xperia is a good phone","30000","12000"));
-        data.add(new HomePojo(R.drawable.logo_one,90,"SONY xperia is a good phone","30000","12000"));
-        data.add(new HomePojo(R.drawable.logo_one,40,"Iphone 8 plus 128 GB ","78000","70000"));
-        data.add(new HomePojo(R.drawable.logo_one,90,"SONY xperia is a good phone","30000","12000"));
-        data.add(new HomePojo(R.drawable.logo_one,90,"SONY xperia is a good phone","30000","12000"));
-        View v = inflater.inflate(R.layout.intro_recycler, container, false);
-        Button check = (Button) v.findViewById(R.id.fazalur);
-        RecyclerView recyclerView=(RecyclerView)v.findViewById(R.id.intro_recycler);
-        int numberOfColumns=2;
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(5), true));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(new HomeAdapter(data));
+        for (int i = 0; i < data.size(); i++) {
+
+
+            data.add(new HomePojo(new HomeDataRetrieve().al.get(i), 50, new HomeDataRetrieve().al1.get(i), new HomeDataRetrieve().oldPrice.get(i), new HomeDataRetrieve().newPrice.get(i)));
+            //data.add(new HomeDataRetrieve().al.get(i), 50,new HomeDataRetrieve().al1.get(i),new HomeDataRetrieve().oldPrice.get(i).toString(),new HomeDataRetrieve().newPrice.get(i).toString());
+//            data.add(new HomePojo(R.drawable.logo_one, 40, "Iphone 8 plus 128 GB ", "78000", "70000"));
+//            data.add(new HomePojo(R.drawable.logo_one, 90, "SONY xperia is a good phone", "30000", "12000"));
+//            data.add(new HomePojo(R.drawable.logo_one, 90, "SONY xperia is a good phone", "30000", "12000"));
+//            data.add(new HomePojo(R.drawable.logo_one, 40, "Iphone 8 plus 128 GB ", "78000", "70000"));
+//            data.add(new HomePojo(R.drawable.logo_one, 90, "SONY xperia is a good phone", "30000", "12000"));
+//            data.add(new HomePojo(R.drawable.logo_one, 90, "SONY xperia is a good phone", "30000", "12000"));
+//            data.add(new HomePojo(R.drawable.logo_one, 40, "Iphone 8 plus 128 GB ", "78000", "70000"));
+//            data.add(new HomePojo(R.drawable.logo_one, 90, "SONY xperia is a good phone", "30000", "12000"));
+//            data.add(new HomePojo(R.drawable.logo_one, 90, "SONY xperia is a good phone", "30000", "12000"));
+        }
+            View v = inflater.inflate(R.layout.intro_recycler, container, false);
+            Button check = (Button) v.findViewById(R.id.fazalur);
+            RecyclerView recyclerView = (RecyclerView) v.findViewById(R.id.intro_recycler);
+            int numberOfColumns = 2;
+            RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
+            recyclerView.setLayoutManager(mLayoutManager);
+            recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(5), true));
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
+            recyclerView.setAdapter(new HomeAdapter(data));
 //        check.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
 //                startActivity(new Intent(getActivity(), ProductDisplay.class));
 //            }
 //        });
-        return v;
-    }
+            return v;
+        }
+
+
+
     @Override
     public void onResume() {
         super.onResume();
@@ -94,9 +102,7 @@ public static View.OnClickListener myOnClickListener;
                     else
                     {
                         getActivity().finish();
-
                     }
-
                 }
                 return false;
             }

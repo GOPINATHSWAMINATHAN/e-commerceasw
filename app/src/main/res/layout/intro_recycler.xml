@@ -39,7 +39,7 @@ android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/shops"
-                    android:text="Riyadh"
+                    android:text="@string/riyadh"
                     style="@style/AppTheme.RoundedCornerMaterialButton"/>
 
 
@@ -53,7 +53,7 @@ android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/shops1"
-                    android:text="Khobar"
+                    android:text="@string/khobar"
                     style="@style/AppTheme.RoundedCornerMaterialButton"/>
 
 
@@ -67,7 +67,7 @@ android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/shop2"
-                    android:text="qassim"
+                    android:text="@string/qassim"
                     style="@style/AppTheme.RoundedCornerMaterialButton"/>
 
 
@@ -81,7 +81,7 @@ android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/shops3"
-                    android:text="Jeddah"
+                    android:text="@string/jeddah"
                     style="@style/AppTheme.RoundedCornerMaterialButton"/>
 
 

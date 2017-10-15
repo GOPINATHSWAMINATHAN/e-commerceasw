@@ -48,7 +48,6 @@ public class ProductDisplay extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i=new Intent(getApplicationContext(),Cart.class);
                 startActivity(i);
-
             }
         });
        // blink();
@@ -60,32 +59,32 @@ public class ProductDisplay extends AppCompatActivity {
             }
         });
     }
-    private void blink(){
-        final Handler handler = new Handler();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                int timeToBlink = 500;    //in milissegunds
-                try{Thread.sleep(timeToBlink);}catch (Exception e) {}
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        TextView txt = (TextView) findViewById(R.id.buy_now);
-                        TextView txt2=(TextView)findViewById(R.id.add_to_cart);
-                        if(txt.getVisibility() == View.VISIBLE||txt2.getVisibility()==View.VISIBLE){
-                            txt.setVisibility(View.INVISIBLE);
-                            txt2.setVisibility(View.INVISIBLE);
-                        }
-                        else
-                        {
-                            txt.setVisibility(View.VISIBLE);
-                            txt2.setVisibility(View.VISIBLE);
-                        }blink();
-                    }
-                });
-            }
-        }).start();
-    }
+//    private void blink(){
+//        final Handler handler = new Handler();
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                int timeToBlink = 500;    //in milissegunds
+//                try{Thread.sleep(timeToBlink);}catch (Exception e) {}
+//                handler.post(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        TextView txt = (TextView) findViewById(R.id.buy_now);
+//                        TextView txt2=(TextView)findViewById(R.id.add_to_cart);
+//                        if(txt.getVisibility() == View.VISIBLE||txt2.getVisibility()==View.VISIBLE){
+//                            txt.setVisibility(View.INVISIBLE);
+//                            txt2.setVisibility(View.INVISIBLE);
+//                        }
+//                        else
+//                        {
+//                            txt.setVisibility(View.VISIBLE);
+//                            txt2.setVisibility(View.VISIBLE);
+//                        }blink();
+//                    }
+//                });
+//            }
+//        }).start();
+//    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
