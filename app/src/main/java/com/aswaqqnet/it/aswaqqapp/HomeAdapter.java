@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.util.ArrayList;
 import java.util.Base64;
@@ -29,19 +30,31 @@ import java.util.TimerTask;
 
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
-
     private List<HomePojo> homeLists = new ArrayList();
     Context context;
+    ArrayList image;
+    int discount;
+    ArrayList<String> product_name;
+    ArrayList<String> old_price;
+    ArrayList<String> new_price;
 
-    public HomeAdapter(Context context, List<HomePojo> homeLists) {
+    public HomeAdapter(Context context, ArrayList image,
+            int discount,
+            ArrayList<String> product_name,
+            ArrayList<String> old_price,
+            ArrayList<String> new_price) {
         this.context = context;
-        this.homeLists = homeLists;
+        this.image=image;
+        this.discount=discount;
+        this.product_name=product_name;
+        this.old_price=old_price;
+        this.new_price=new_price;
+
     }
 
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_main, parent, false);
         itemView.setOnClickListener(HomeFragment.myOnClickListener);
         MyViewHolder vHolder = new MyViewHolder(itemView);
@@ -51,13 +64,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         HomePojo hp = homeLists.get(position);
-
         //holder.productImage.setImageBitmap((Bitmap) hp.getImage().get(position));
-//        holder.discount.setText(hp.getDiscount());
-        Picasso.with(context).load(String.valueOf(hp.getImage().get(position))).resize(120, 60).into(holder.productImage);
-        holder.oldPrice.setText(hp.getOld_price().get(position));
-        holder.newPrice.setText(hp.getNew_price().get(position));
-        holder.productName.setText(hp.getProduct_name().get(position));
+        //holder.discount.setText(hp.getDiscount());
+        Picasso.with(context).load(String.valueOf(image.get(position))).resize(120, 60).into((Target) image);
+        holder.oldPrice.setText(old_price.get(position));
+        holder.discount.setText(discount);
+        holder.newPrice.setText(new_price.get(position));
+        holder.productName.setText(product_name.get(position));
         Log.e("ADAPTER DATA ARE ", "" + hp.getNew_price() + "" + hp.getOld_price() + "" + hp.getNew_price());
     }
 
@@ -85,20 +98,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
             viewProduct = itemView.findViewById(R.id.fazalur);
             RelativeLayout check_progress = (RelativeLayout) itemView.findViewById(R.layout.progress_bar);
 
-
             viewProduct.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-
                     Intent check1 = new Intent(context, ProductDisplay.class);
                     check1.putExtra("pos", getAdapterPosition());
                     context.startActivity(check1);
-
                 }
-
             });
-
 
             productCard.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -107,12 +114,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
                     Intent check = new Intent(context, ProductDisplay.class);
                     check.putExtra("pos", getAdapterPosition());
                     context.startActivity(check);
-
                 }
             });
-
         }
-
     }
 }
 

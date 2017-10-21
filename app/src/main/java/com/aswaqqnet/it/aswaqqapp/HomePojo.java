@@ -16,7 +16,10 @@ public class HomePojo {
     public ArrayList<String> product_name;
     public ArrayList<String> old_price;
     public ArrayList<String> new_price;
+public HomePojo()
+{
 
+}
     public HomePojo(ArrayList image, int discount, ArrayList<String> product_name, ArrayList<String> old_price, ArrayList<String> new_price) {
         this.image = image;
         this.discount = discount;

@@ -18,14 +18,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
     public static View.OnClickListener myOnClickListener;
-
-    public HomeFragment() {
+    public ArrayList image;
+    public int discount;
+    public ArrayList<String> product_name;
+    public ArrayList<String> old_price;
+    public ArrayList<String> new_price;
+   public HomeFragment()
+    {
 
     }
 
@@ -42,8 +46,6 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         List<HomePojo> data = new ArrayList();
-        new HomeDataRetrieve().execute();
-
             View v = inflater.inflate(R.layout.intro_recycler, container, false);
             Button check = (Button) v.findViewById(R.id.fazalur);
         ImageView img=(ImageView)v.findViewById(R.id.imgview);
@@ -54,10 +56,16 @@ public class HomeFragment extends Fragment {
             recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(5), true));
             recyclerView.setItemAnimator(new DefaultItemAnimator());
             //   Picasso.with(getActivity()).load("http://i.imgur.com/DvpvklR.png").into();
-            data.add(new HomePojo(new HomeDataRetrieve().al, 50, new HomeDataRetrieve().al1, new HomeDataRetrieve().oldPrice, new HomeDataRetrieve().newPrice));
+        new HomeDataRetrieve().execute();
+        this.image=new HomePojo().getImage();
+        this.discount=50;
+        this.product_name=new HomePojo().getProduct_name();
+        this.old_price=new HomePojo().getOld_price();
+        this.new_price=new HomePojo().getNew_price();
+
             //Log.e("VALUES FROM FRAGMENT",""+data);
             Toast.makeText(getActivity(),""+data,Toast.LENGTH_LONG).show();
-            //data.add(new HomeDataRetrieve().al.get(i), 50,new HomeDataRetrieve().al1.get(i),new HomeDataRetrieve().oldPrice.get(i).toString(),new HomeDataRetrieve().newPrice.get(i).toString());
+ //data.add(new HomeDataRetrieve().al.get(i), 50,new HomeDataRetrieve().al1.get(i),new HomeDataRetrieve().oldPrice.get(i).toString(),new HomeDataRetrieve().newPrice.get(i).toString());
 //            data.add(new HomePojo(R.drawable.logo_one, 40, "Iphone 8 plus 128 GB ", "78000", "70000"));
 //            data.add(new HomePojo(R.drawable.logo_one, 90, "SONY xperia is a good phone", "30000", "12000"));
 //            data.add(new HomePojo(R.drawable.logo_one, 90, "SONY xperia is a good phone", "30000", "12000"));
@@ -68,7 +76,7 @@ public class HomeFragment extends Fragment {
 //            data.add(new HomePojo(R.drawable.logo_one, 90, "SONY xperia is a good phone", "30000", "12000"));
 //            data.add(new HomePojo(R.drawable.logo  _one, 90, "SONY xperia is a good phone", "30000", "12000"));
 
-            recyclerView.setAdapter(new HomeAdapter(getActivity(),data));
+            recyclerView.setAdapter(new HomeAdapter(getActivity(),image,discount,product_name,old_price,new_price));
 //        check.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {

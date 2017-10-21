@@ -138,7 +138,9 @@ public class HomeDataRetrieve extends AsyncTask<String, Void, String> {
 //                e.printStackTrace();
 //            }
         }
+        new HomePojo(al, 50, new HomeDataRetrieve().al1, new HomeDataRetrieve().oldPrice, new HomeDataRetrieve().newPrice);
     }
+
 //    public static Drawable drawableFromUrl(String url) throws IOException {
 //        Bitmap x;
 //

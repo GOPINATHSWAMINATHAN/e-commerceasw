@@ -140,8 +140,14 @@ FragmentManager mFragmentManager;
             return true;
 
         }
-
-
+        else if(id==R.id.clothes_women)
+        {
+            newFragment=new WomenCloth();
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, newFragment).commit();
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawers();
+            return true;
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.END);
         drawer.closeDrawers();
