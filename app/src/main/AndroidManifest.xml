@@ -18,8 +18,7 @@
             android:name=".Drawer"
             android:label="@string/title_activity_drawer"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ProductDisplay"
-           />
+        <activity android:name=".ProductDisplay" />
         <activity android:name=".ProgressLoading" />
         <activity android:name=".IntroScreen">
             <intent-filter>
@@ -29,7 +28,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Cart" />
-        <activity android:name=".AddressDetails"></activity>
+        <activity android:name=".AddressDetails" />
+        <activity android:name=".RiyadhShop"></activity>
     </application>
 
 </manifest>

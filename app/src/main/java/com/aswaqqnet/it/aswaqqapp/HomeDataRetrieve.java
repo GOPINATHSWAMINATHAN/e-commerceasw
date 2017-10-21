@@ -1,14 +1,20 @@
 package com.aswaqqnet.it.aswaqqapp;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.util.Log;
 //import android.widget.Toast;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -26,13 +32,14 @@ import okhttp3.Response;
 
 public class HomeDataRetrieve extends AsyncTask<String, Void, String> {
 
+    Context context;
     String department;
-    ArrayList<Bitmap> al=new ArrayList();
-    ArrayList<String> al1=new ArrayList();
-    ArrayList<String> oldPrice=new ArrayList();
-    ArrayList<String> newPrice=new ArrayList();
+    ArrayList al = new ArrayList();
+    ArrayList<String> al1 = new ArrayList();
+    ArrayList<String> oldPrice = new ArrayList();
+    ArrayList<String> newPrice = new ArrayList();
     String url = "https://www.aswaqqnet.com/web/en/androidview/andview1.php";
-//    String product_code = "product_code";
+    //    String product_code = "product_code";
 //    String price = "price";
 //    String product_name = "product_name";
     String array = "aaData";
@@ -67,7 +74,8 @@ public class HomeDataRetrieve extends AsyncTask<String, Void, String> {
     protected void onPostExecute(String jsonData) {
         JSONObject jsonObject = null;
         int k = 1;
-        for (int j = 0; j <= k; j++) {
+
+        for (int j = 0; j < 33; j++) {
             try {
                 jsonObject = new JSONObject(jsonData);
                 JSONArray jsonArray = jsonObject.getJSONArray(array + k);
@@ -80,9 +88,10 @@ public class HomeDataRetrieve extends AsyncTask<String, Void, String> {
                         al1.add(jsonArray.getString(0));
                         oldPrice.add(jsonArray.getString(2));
                         newPrice.add(jsonArray.getString(3));
-                        URL url = new URL(jsonArray.getString(6));
-                        Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-                        al.add(bmp);
+                      al.add(jsonArray.getString(7));
+                        Log.e("Image Value", ""+al);
+                      // Log.e("SHOES",jsonArray.getString(0));
+
                     }
 
 //                for(int i=0;i<jsonArray.length();i++)
@@ -112,11 +121,32 @@ public class HomeDataRetrieve extends AsyncTask<String, Void, String> {
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
+//            } catch (MalformedURLException e) {
+//                e.printStackTrace();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
             }
+//            catch (MalformedURLException e) {
+//                e.printStackTrace();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            catch (MalformedURLException e) {
+//                e.printStackTrace();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
         }
     }
+//    public static Drawable drawableFromUrl(String url) throws IOException {
+//        Bitmap x;
+//
+//        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+//        connection.connect();
+//        InputStream input = connection.getInputStream();
+//
+//        x = BitmapFactory.decodeStream(input);
+//        return new BitmapDrawable(x);
+//    }
 }

@@ -2,19 +2,21 @@ package com.aswaqqnet.it.aswaqqapp;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -41,10 +43,20 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         List<HomePojo> data = new ArrayList();
         new HomeDataRetrieve().execute();
-        for (int i = 0; i < data.size(); i++) {
 
-
-            data.add(new HomePojo(new HomeDataRetrieve().al.get(i), 50, new HomeDataRetrieve().al1.get(i), new HomeDataRetrieve().oldPrice.get(i), new HomeDataRetrieve().newPrice.get(i)));
+            View v = inflater.inflate(R.layout.intro_recycler, container, false);
+            Button check = (Button) v.findViewById(R.id.fazalur);
+        ImageView img=(ImageView)v.findViewById(R.id.imgview);
+            RecyclerView recyclerView = (RecyclerView) v.findViewById(R.id.intro_recycler);
+            int numberOfColumns = 2;
+            RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
+            recyclerView.setLayoutManager(mLayoutManager);
+            recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(5), true));
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
+            //   Picasso.with(getActivity()).load("http://i.imgur.com/DvpvklR.png").into();
+            data.add(new HomePojo(new HomeDataRetrieve().al, 50, new HomeDataRetrieve().al1, new HomeDataRetrieve().oldPrice, new HomeDataRetrieve().newPrice));
+            //Log.e("VALUES FROM FRAGMENT",""+data);
+            Toast.makeText(getActivity(),""+data,Toast.LENGTH_LONG).show();
             //data.add(new HomeDataRetrieve().al.get(i), 50,new HomeDataRetrieve().al1.get(i),new HomeDataRetrieve().oldPrice.get(i).toString(),new HomeDataRetrieve().newPrice.get(i).toString());
 //            data.add(new HomePojo(R.drawable.logo_one, 40, "Iphone 8 plus 128 GB ", "78000", "70000"));
 //            data.add(new HomePojo(R.drawable.logo_one, 90, "SONY xperia is a good phone", "30000", "12000"));
@@ -54,17 +66,9 @@ public class HomeFragment extends Fragment {
 //            data.add(new HomePojo(R.drawable.logo_one, 90, "SONY xperia is a good phone", "30000", "12000"));
 //            data.add(new HomePojo(R.drawable.logo_one, 40, "Iphone 8 plus 128 GB ", "78000", "70000"));
 //            data.add(new HomePojo(R.drawable.logo_one, 90, "SONY xperia is a good phone", "30000", "12000"));
-//            data.add(new HomePojo(R.drawable.logo_one, 90, "SONY xperia is a good phone", "30000", "12000"));
-        }
-            View v = inflater.inflate(R.layout.intro_recycler, container, false);
-            Button check = (Button) v.findViewById(R.id.fazalur);
-            RecyclerView recyclerView = (RecyclerView) v.findViewById(R.id.intro_recycler);
-            int numberOfColumns = 2;
-            RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
-            recyclerView.setLayoutManager(mLayoutManager);
-            recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(5), true));
-            recyclerView.setItemAnimator(new DefaultItemAnimator());
-            recyclerView.setAdapter(new HomeAdapter(data));
+//            data.add(new HomePojo(R.drawable.logo  _one, 90, "SONY xperia is a good phone", "30000", "12000"));
+
+            recyclerView.setAdapter(new HomeAdapter(getActivity(),data));
 //        check.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {

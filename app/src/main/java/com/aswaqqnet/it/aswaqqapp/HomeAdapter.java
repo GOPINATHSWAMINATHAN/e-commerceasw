@@ -3,10 +3,12 @@ package com.aswaqqnet.it.aswaqqapp;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 import java.util.Timer;
@@ -25,26 +30,35 @@ import java.util.TimerTask;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
 
-private List<HomePojo> homeLists;
+    private List<HomePojo> homeLists = new ArrayList();
+    Context context;
+
+    public HomeAdapter(Context context, List<HomePojo> homeLists) {
+        this.context = context;
+        this.homeLists = homeLists;
+    }
+
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View itemView= LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_main,parent,false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_main, parent, false);
         itemView.setOnClickListener(HomeFragment.myOnClickListener);
-        MyViewHolder  vHolder=new MyViewHolder(itemView);
+        MyViewHolder vHolder = new MyViewHolder(itemView);
         return vHolder;
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        HomePojo hp=homeLists.get(position);
-        holder.productImage.setImageResource(hp.getImage());
-//        holder.discount.setText(hp.getDiscount());
-        holder.oldPrice.setText(hp.getOld_price());
-        holder.newPrice.setText(hp.getNew_price());
-        holder.productName.setText(hp.getProduct_name());
+        HomePojo hp = homeLists.get(position);
 
+        //holder.productImage.setImageBitmap((Bitmap) hp.getImage().get(position));
+//        holder.discount.setText(hp.getDiscount());
+        Picasso.with(context).load(String.valueOf(hp.getImage().get(position))).resize(120, 60).into(holder.productImage);
+        holder.oldPrice.setText(hp.getOld_price().get(position));
+        holder.newPrice.setText(hp.getNew_price().get(position));
+        holder.productName.setText(hp.getProduct_name().get(position));
+        Log.e("ADAPTER DATA ARE ", "" + hp.getNew_price() + "" + hp.getOld_price() + "" + hp.getNew_price());
     }
 
     @Override
@@ -52,59 +66,55 @@ private List<HomePojo> homeLists;
         return homeLists.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder
-{
-    Context context=itemView.getContext();
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        Context context = itemView.getContext();
 
-    public ImageView productImage;
-    TextView discount,oldPrice,newPrice,productName;
-    CardView productCard;
-    Button viewProduct;
-    public MyViewHolder(View itemView) {
-        super(itemView);
-        productImage=itemView.findViewById(R.id.imgview);
-        discount=itemView.findViewById(R.id.discount_price);
-        oldPrice=itemView.findViewById(R.id.old_price);
-        newPrice=itemView.findViewById(R.id.new_price);
-        productName=itemView.findViewById(R.id.product_name);
-        productCard=itemView.findViewById(R.id.first_card);
-        viewProduct=itemView.findViewById(R.id.fazalur);
-        RelativeLayout check_progress=(RelativeLayout)itemView.findViewById(R.layout.progress_bar);
+        public ImageView productImage;
+        TextView discount, oldPrice, newPrice, productName;
+        CardView productCard;
+        Button viewProduct;
 
-
-        viewProduct.setOnClickListener(new View.OnClickListener() {
-                                           @Override
-                                           public void onClick(View view) {
+        public MyViewHolder(View itemView) {
+            super(itemView);
+            productImage = itemView.findViewById(R.id.imgview);
+            discount = itemView.findViewById(R.id.discount_price);
+            oldPrice = itemView.findViewById(R.id.old_price);
+            newPrice = itemView.findViewById(R.id.new_price);
+            productName = itemView.findViewById(R.id.product_name);
+            productCard = itemView.findViewById(R.id.first_card);
+            viewProduct = itemView.findViewById(R.id.fazalur);
+            RelativeLayout check_progress = (RelativeLayout) itemView.findViewById(R.layout.progress_bar);
 
 
-                                               Intent check1 = new Intent(context, ProductDisplay.class);
-                                               check1.putExtra("pos", getAdapterPosition());
-                                               context.startActivity(check1);
-
-                                           }
-
-                                       });
+            viewProduct.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
 
-        productCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-          //     Toast.makeText(context,getAdapterPosition(),Toast.LENGTH_LONG).show();
-                Intent check=new Intent(context,ProductDisplay.class);
-                check.putExtra("pos",getAdapterPosition());
-                context.startActivity(check);
+                    Intent check1 = new Intent(context, ProductDisplay.class);
+                    check1.putExtra("pos", getAdapterPosition());
+                    context.startActivity(check1);
 
-            }
-        });
+                }
+
+            });
+
+
+            productCard.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //     Toast.makeText(context,getAdapterPosition(),Toast.LENGTH_LONG).show();
+                    Intent check = new Intent(context, ProductDisplay.class);
+                    check.putExtra("pos", getAdapterPosition());
+                    context.startActivity(check);
+
+                }
+            });
+
+        }
 
     }
-
 }
 
 
-public HomeAdapter(List<HomePojo> homeLists)
-{
-    this.homeLists=homeLists;
-}
 
-}
